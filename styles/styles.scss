@@ -1,0 +1,301 @@
+@import "functions";
+@import "typography";
+@import "colors";
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Public Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+header {
+    @include center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    position: relative;
+    z-index: 10;
+    background-color: $White;
+    img {
+        object-fit: contain;
+    }
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include small-screen {
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            right: 0;
+            top: 5rem;
+            width: 85%;
+            margin: 0 auto;
+            padding: 1rem;
+            background-color: $White;
+            border-radius: 5px;
+            box-shadow: 0 0 60px 30px hsl(233, 26%, 24%);
+            display: none;
+        }
+        li {
+            padding: 0 1.25rem;
+            @include small-screen {
+                padding: 1rem;
+            }
+            a {
+                color: $Grayish-Blue;
+                padding: 1.4rem 0;
+                &:hover {
+                    border-bottom: 5px solid $Lime-Green;
+                    color: $Dark-Blue;
+                }
+                @include small-screen {
+                    color: $Dark-Blue;
+                }
+            }
+        }
+    } 
+    .request-btn {
+        display: block;
+        margin: auto 0;
+        @include small-screen {
+            display: none;
+        }
+    }
+    #menu-btn {
+        display: none;
+        background-image: url(../images/icon-hamburger.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 25px;
+        height: 25px;
+        border: none;
+        @include small-screen {
+            display: block;
+            background-color: transparent;
+        }
+    }
+}
+
+.request-btn {
+    background: $Green-Gradient;
+    height: 2.5rem;
+    border-radius: 2.5rem;
+    border: none;
+    color: $White;
+    padding: 0 1.5rem;
+    font-weight: 700;
+    &:hover {
+        opacity: 0.6;
+        cursor: pointer;
+    }
+}
+
+.first-section {
+    @include center;
+    display: flex;    
+    background-color: $Very-Light-Gray;  
+    @include small-screen {
+        flex-direction: column-reverse;
+        padding: 0;
+    }
+    .text-part {
+        width: 40%;
+        padding: 8rem 1rem 8rem 0;
+        @include small-screen {
+            width: 100%;
+            text-align: center;
+            padding: 0;
+            @include center;
+        }
+        .request-btn {
+            margin: 2rem 0;
+        }
+    }
+    .img-part {
+        position: relative;
+        width: 60%;
+        @include small-screen {
+            width: 100%;
+            height: 22rem;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        #bg-intro {
+            position: absolute;
+            top: -42%;
+            width: 300%;
+            height: 300%;
+            background-image: url(../images/bg-intro-desktop.svg);
+            background-repeat: no-repeat;
+            @include small-screen {
+                top: -20%;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                background-image: url(../images/bg-intro-mobile.svg);
+            }
+        }
+        img {
+            position: absolute;
+            top: -23%;
+            left: 22%;
+            z-index: 9;
+            @include small-screen {
+                width: 100%;
+                top: -30%;
+                left: 0;
+                transform-origin: 0% 0%;
+            }
+        }
+    }
+}
+
+.second-section {
+    @include center;
+    background-color: $Light-Grayish-Blue;
+    position: relative;
+    z-index: 3;
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+    &-intro {
+        width: 60%;
+        @include small-screen {
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .features {
+        @include grid-layout;
+        margin-top: 4rem;
+        @include small-screen {
+            grid-template-columns: unset;
+        }
+        .feature {
+            @include small-screen {
+                text-align: center;
+            }
+            img {
+                margin-bottom: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+    } 
+}
+
+.third-section {
+    @include center;
+    background-color: $Very-Light-Gray;
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+    .articles {
+        @include grid-layout;
+        margin-top: 1rem;
+        @include small-screen {
+            grid-template-columns: unset;
+        }
+        .article {
+            background-color: $White;
+            border-radius: 5px;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 11.25rem;
+                object-fit: cover;
+            }
+            &-content {
+                padding: 1.25rem 16px;
+                .author {
+                    font-size: 0.75rem;
+                }
+                &-description {
+                    font-size: 0.825rem;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    @include center;
+    background-color: $Dark-Blue;
+    display: flex;
+    justify-content: space-between;
+    height: 12rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    position: relative;
+    @include small-screen {
+        flex-direction: column;
+        height: unset;
+    }
+    &-1st-part {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 2rem;
+        @include small-screen {
+            align-items: center;
+            height: 5rem;
+            margin-right: 0;
+            margin-bottom: 1rem;
+        }
+        .social-links {
+            display: flex;
+            .social-link {
+                margin-right: 0.8rem;
+                @include small-screen {
+                    margin: 0.5rem;
+                }
+            }
+        }
+    }
+    &-2nd-part {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        @include small-screen {
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        li {
+            padding: 0.35rem 0;
+            margin-right: 9rem;
+            @include small-screen {
+                margin-right: 0;
+                padding: 0.5rem;
+            }
+            a {
+                color: $Very-Light-Gray;
+                &:hover {
+                    color: $Lime-Green;
+                }
+            }
+        }
+    }
+    &-3rd-part {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        @include small-screen {
+            align-items: center;
+            height: 5rem;
+        }
+        span {
+            font-size: 0.825rem;
+        }
+    }
+}

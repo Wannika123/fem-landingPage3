@@ -1,0 +1,21 @@
+@use "sass:math";
+
+@function pxToRem($pxValue) {
+  @return math.div($pxValue, 16) * 1rem;
+}
+
+@mixin center {
+  padding: 0 8vw;
+}
+
+@mixin grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+@mixin small-screen {
+  @media (max-width: 41rem) {
+    @content;
+  }
+}
