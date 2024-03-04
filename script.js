@@ -1,17 +1,21 @@
 console.log('Hello');
 
 const menuBtn = document.getElementById('menu-btn');
-const menu = document.getElementById('menu')
+const menu = document.getElementById('menu');
 
-menuBtn.addEventListener('click', () => {
+function toggleMenu() {
+    const menuBtnStyle = window.getComputedStyle(menuBtn);
+    const bgImgVal = menuBtnStyle.getPropertyValue('background-image');
     if (menu.style.display === 'block') {
         menu.style.display = 'none';
-        menuBtn.style.backgroundImage = 'url(../images/icon-hamburger.svg)'
+        menuBtn.style.backgroundImage = bgImgVal.replace('close', 'hamburger');
     } else {
         menu.style.display = 'block';
-        menuBtn.style.backgroundImage = 'url(../images/icon-close.svg)'
+        menuBtn.style.backgroundImage = bgImgVal.replace('hamburger', 'close');
     }
-})
+}
+
+menuBtn.addEventListener('click', toggleMenu);
 
 const socialLinks = document.getElementsByClassName('social-link');
 
